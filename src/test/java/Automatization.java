@@ -49,29 +49,47 @@ public class Automatization
 
     public void search ()
     {
+        //Находим первый элемент списка
         List<WebElement> spisok = driver.findElements(By.xpath("//div[contains(@data-id, 'model-')]"));
         WebElement first= spisok.get(0);
         WebElement title= first.findElement(By.xpath(".//div[contains(@class, 'title')]/a"));
         this.target = title.getText();
         System.out.println(target);
+
+
+        //Тут идёт завершение процесса теста если при сортировке нет подходящих элементов
+        if ( target == null )
+        {
+            System.err.println("По вашему запросу ничего не найдено");
+            close();
+        }
     }
 
     public void targetSearch ()
     {
+        // Вбиваем первый элемент в поисковую строку
         driver.findElement( By.id("header-search")).sendKeys(target);
     }
 
     public void searchSecond ()
     {
+        //Находим первый элемент после поиска
         List<WebElement> spisok = driver.findElements(By.xpath("//div[contains(@data-id, 'model-')]"));
         WebElement first= spisok.get(0);
         WebElement title= first.findElement(By.xpath(".//div[contains(@class, 'title')]/a"));
         this.secondTarget = title.getText();
         System.out.println(secondTarget);
+
+        if ( secondTarget == null )
+        {
+            System.err.println("По вашему запросу ничего не найдено");
+            close();
+        }
     }
 
     public void equals()
     {
+        //Сравниваем
         if ( target.equals(secondTarget) )
         {
             System.out.println( "Тест выполнен успешно" );
@@ -81,7 +99,6 @@ public class Automatization
             System.err.println( "Тест выполнен не успешно" );
         }
     }
-
 
     public void close ()
     {

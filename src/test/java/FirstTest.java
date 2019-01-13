@@ -14,14 +14,17 @@ public class FirstTest extends Automatization
             send("glpriceto", "30000");
             click("HP");
             click("Lenovo");
-           /* click("Показывать по 48");
-            click("Показывать по 12"); */
-            search();
-            targetSearch();
-            clickX("//button[contains(@class, 'button2')]");
-            searchSecond();
-            equals();
-            close();
+           /*
+           ***
+           click("Показывать по 48");
+           click("Показывать по 12");
+           */
+           search();
+           targetSearch();
+           clickX("//button[contains(@class, 'button2')]");
+           searchSecond();
+           equals();
+           close();
         }
 
 

@@ -15,6 +15,12 @@ public class SecondTest extends Automatization
         send("glpriceto", "25000");
         click("HP");
         click("Lenovo");
+        /*
+        click("Показать всё");
+        click("Acer");
+        click("DELL");
+        Ничего не находит в нужной ценовой категории, поэтому решил оставить производителей из прошлого теста
+        */
         search();
         targetSearch();
         clickX("//button[contains(@class, 'button2')]");
